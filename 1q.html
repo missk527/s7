@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vocabulary Cloze Quiz — 1q</title>
+<style>
+  :root{
+    --bg:#0f172a;
+    --card:#111827;
+    --ink:#e5e7eb;
+    --muted:#9ca3af;
+    --accent:#22c55e;
+    --wrong:#ef4444;
+    --focus:#38bdf8;
+  }
+  html,body{background:var(--bg);color:var(--ink);font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";margin:0}
+  .wrap{max-width:1100px;margin:28px auto;padding:0 16px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+  h1{font-size:clamp(22px,4vw,32px);margin:0;font-weight:800;letter-spacing:.2px}
+  .bank{background:var(--card);border-radius:16px;padding:14px 16px;margin:14px 0;box-shadow:0 8px 24px rgb(0 0 0 / .25)}
+  .bank strong{display:block;margin-bottom:6px;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.18em}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{padding:6px 10px;border:1px dashed #374151;border-radius:10px;background:#0b1220}
+  ol{counter-reset:q;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+  li{background:var(--card);padding:16px;border-radius:16px;box-shadow:0 6px 18px rgb(0 0 0 / .20)}
+  li::before{counter-increment:q;content:counter(q) ".";color:var(--muted);font-weight:700;margin-right:10px}
+  .q{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  select{appearance:none;background:#0b1220;border:1px solid #374151;border-radius:12px;color:var(--ink);padding:10px 12px;font-size:15px;outline:none}
+  select:focus{box-shadow:0 0 0 3px var(--focus)}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  button{border:0;border-radius:14px;padding:12px 16px;font-weight:700;cursor:pointer}
+  #check{background:#2563eb;color:white}
+  #reset{background:#374151;color:#e5e7eb}
+  .result{margin-left:auto;color:var(--muted);font-weight:700}
+  .correct{outline:3px solid var(--accent)}
+  .incorrect{outline:3px solid var(--wrong)}
+  footer{color:var(--muted);font-size:13px;margin-top:20px}
+  .blank{font-weight:700;letter-spacing:.2px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Vocabulary Cloze Quiz</h1>
+      <div class="result" id="score">Score: —</div>
+    </header>
+
+    <div class="bank">
+      <strong>Word bank</strong>
+      <div class="chips" id="bankChips">
+        <span class="chip">accommodate</span>
+        <span class="chip">accused</span>
+        <span class="chip">ambassadors</span>
+        <span class="chip">apparel</span>
+        <span class="chip">attached</span>
+        <span class="chip">attendees</span>
+        <span class="chip">bulletins</span>
+        <span class="chip">colloquial</span>
+        <span class="chip">currency</span>
+        <span class="chip">efficacy</span>
+        <span class="chip">erroneous</span>
+        <span class="chip">essence</span>
+        <span class="chip">gimmick</span>
+        <span class="chip">occult</span>
+        <span class="chip">syllabus</span>
+        <span class="chip">symmetry</span>
+        <span class="chip">tattoo</span>
+        <span class="chip">territory</span>
+        <span class="chip">utterance</span>
+        <span class="chip">warranty</span>
+      </div>
+      <p style="margin:8px 0 0;color:var(--muted);font-size:13px">Choose the best word for each blank. Use each word once.</p>
+    </div>
+
+    <ol id="quiz">
+      <li>
+        <div class="q">The free plastic toy that comes with those cereals is just a marketing <span class="blank">___</span>.</div>
+        <select>
+          <option value="">— choose —</option>
+        </select>
+      </li>
+      <li>
+        <div class="q">"Cool" is one of my least favourite <span class="blank">___</span> terms.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">In protest at recent events, many <span class="blank">___</span> have been recalled from that country.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Students and teachers alike have complained that the <span class="blank">___</span> is too long.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Dr Dee's shelves held many books that dealt with the <span class="blank">___</span>.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Lucinda gave <span class="blank">___</span> to what we were all thinking, but couldn't say.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">For years, this <span class="blank">___</span> has been a source of tension in the region.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The charm of this design lies in its lack of <span class="blank">___</span>.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The conference <span class="blank">___</span> were told to gather in the hotel's foyer.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"These results must be <span class="blank">___</span>; they make no sense," the scientist declared.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">I am extremely <span class="blank">___</span> to my old jeans; I've travelled everywhere in them.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The <span class="blank">___</span> of this new cure is being debated by the medical profession.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Nat wants to get a <span class="blank">___</span>, but his mother keeps refusing to let him.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">That spacious SUV can <span class="blank">___</span> up to eight passengers.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The drachma used to be the <span class="blank">___</span> of Greece before the Euro was introduced.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The <span class="blank">___</span> of Keyla's argument is that she thinks we're right.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Jordan has just <span class="blank">___</span> me of losing our train tickets.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Petronella wondered at the costly <span class="blank">___</span> of the king's guests.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The government is issuing regular <span class="blank">___</span> to keep us updated.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">If the device is no longer under <span class="blank">___</span>, I'm afraid I can't fix it.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+    </ol>
+
+    <div class="btns">
+      <button id="check">Check answers</button>
+      <button id="reset" type="button">Reset</button>
+    </div>
+
+    <footer>Made for practice — answers are checked instantly on your device.</footer>
+  </div>
+
+<script>
+  const WORDS = [
+    "accommodate","accused","ambassadors","apparel","attached","attendees",
+    "bulletins","colloquial","currency","efficacy","erroneous","essence",
+    "gimmick","occult","syllabus","symmetry","tattoo","territory","utterance","warranty"
+  ];
+
+  // Correct answers in order of questions 1..20
+  const ANSWERS = [
+    "gimmick",
+    "colloquial",
+    "ambassadors",
+    "syllabus",
+    "occult",
+    "utterance",
+    "territory",
+    "symmetry",
+    "attendees",
+    "erroneous",
+    "attached",
+    "efficacy",
+    "tattoo",
+    "accommodate",
+    "currency",
+    "essence",
+    "accused",
+    "apparel",
+    "bulletins",
+    "warranty"
+  ];
+
+  // Fill every <select> with the word bank
+  document.querySelectorAll("select").forEach(sel => {
+    WORDS.forEach(w => {
+      const opt = document.createElement('option');
+      opt.value = w;
+      opt.textContent = w;
+      sel.appendChild(opt);
+    });
+  });
+
+  const scoreEl = document.getElementById("score");
+  const checkBtn = document.getElementById("check");
+  const resetBtn = document.getElementById("reset");
+
+  function grade(){
+    let correct = 0;
+    document.querySelectorAll("#quiz li").forEach((li, idx) => {
+      const select = li.querySelector("select");
+      li.classList.remove("correct","incorrect");
+      if(!select.value){ return; }
+      if(select.value === ANSWERS[idx]){
+        li.classList.add("correct");
+        correct++;
+      }else{
+        li.classList.add("incorrect");
+      }
+    });
+    scoreEl.textContent = `Score: ${correct} / ${ANSWERS.length}`;
+  }
+
+  checkBtn.addEventListener("click", grade);
+
+  resetBtn.addEventListener("click", () => {
+    document.querySelectorAll("select").forEach(s => s.value = "");
+    document.querySelectorAll("#quiz li").forEach(li => li.classList.remove("correct","incorrect"));
+    scoreEl.textContent = "Score: —";
+  });
+</script>
+</body>
+</html>
