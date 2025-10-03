@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vocabulary Cloze Quiz — Friends & Fights</title>
+<style>
+  :root{
+    --bg:#0f172a;
+    --card:#111827;
+    --ink:#e5e7eb;
+    --muted:#9ca3af;
+    --accent:#22c55e;
+    --wrong:#ef4444;
+    --focus:#38bdf8;
+  }
+  html,body{background:var(--bg);color:var(--ink);font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";margin:0}
+  .wrap{max-width:1100px;margin:28px auto;padding:0 16px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+  h1{font-size:clamp(22px,4vw,32px);margin:0;font-weight:800;letter-spacing:.2px}
+  .bank{background:var(--card);border-radius:16px;padding:14px 16px;margin:14px 0;box-shadow:0 8px 24px rgb(0 0 0 / .25)}
+  .bank strong{display:block;margin-bottom:6px;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.18em}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{padding:6px 10px;border:1px dashed #374151;border-radius:10px;background:#0b1220}
+  ol{counter-reset:q;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+  li{background:var(--card);padding:16px;border-radius:16px;box-shadow:0 6px 18px rgb(0 0 0 / .20)}
+  li::before{counter-increment:q;content:counter(q) ".";color:var(--muted);font-weight:700;margin-right:10px}
+  .q{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  select{appearance:none;background:#0b1220;border:1px solid #374151;border-radius:12px;color:var(--ink);padding:10px 12px;font-size:15px;outline:none}
+  select:focus{box-shadow:0 0 0 3px var(--focus)}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  button{border:0;border-radius:14px;padding:12px 16px;font-weight:700;cursor:pointer}
+  #check{background:#2563eb;color:white}
+  #reset{background:#374151;color:#e5e7eb}
+  .result{margin-left:auto;color:var(--muted);font-weight:700}
+  .correct{outline:3px solid var(--accent)}
+  .incorrect{outline:3px solid var(--wrong)}
+  footer{color:var(--muted);font-size:13px;margin-top:20px}
+  .blank{font-weight:700;letter-spacing:.2px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Vocabulary Cloze Quiz</h1>
+      <div class="result" id="score">Score: —</div>
+    </header>
+
+    <div class="bank">
+      <strong>Word bank</strong>
+      <div class="chips" id="bankChips">
+        <span class="chip">accomplices</span>
+        <span class="chip">affable</span>
+        <span class="chip">amicably</span>
+        <span class="chip">befriended</span>
+        <span class="chip">camaraderie</span>
+        <span class="chip">cordial</span>
+        <span class="chip">crony</span>
+        <span class="chip">genial</span>
+        <span class="chip">inseparable</span>
+        <span class="chip">jovial</span>
+        <span class="chip">adversary</span>
+        <span class="chip">combatants</span>
+        <span class="chip">dogfight</span>
+        <span class="chip">foray</span>
+        <span class="chip">fray</span>
+        <span class="chip">melee</span>
+        <span class="chip">nemesis</span>
+        <span class="chip">saboteurs</span>
+        <span class="chip">skirmish</span>
+        <span class="chip">tussle</span>
+      </div>
+      <p style="margin:8px 0 0;color:var(--muted);font-size:13px">Choose the best word for each blank. Use each word once.</p>
+    </div>
+
+    <ol id="quiz">
+      <li>
+        <div class="q">Professor Moriarty, Sherlock Holmes's <span class="blank">___</span>, gave a long, low laugh.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Lilly and Lola managed to resolve their differences <span class="blank">___</span>.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Despite their rivalry, the two teams have a <span class="blank">___</span> relationship with each other.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The <span class="blank">___</span> among the soldiers was plain for all to see.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Jim and his <span class="blank">___</span>, Boz, are planning to gate-crash the party.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The courageous knight charged into the thick of the <span class="blank">___</span>.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">We thanked our hosts for creating such a <span class="blank">___</span> atmosphere.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The young elf was <span class="blank">___</span> by a group of gnomes.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">In a <span class="blank">___</span> between Batman and Spider-Man, who would win?</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">I've never seen Uncle Ewan in such a <span class="blank">___</span> mood; he can't stop smiling!</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">A small group of soldiers made a lightning <span class="blank">___</span> into the enemy camp.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The police believe the robbers were helped by <span class="blank">___</span> inside the bank.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Jack and Jill are <span class="blank">___</span>; they go everywhere together.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Several people were hurt in the <span class="blank">___</span> that broke out outside the stadium.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The debate between the two candidates descended into an undignified <span class="blank">___</span>.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Unnamed <span class="blank">___</span> are being blamed for the factory explosion.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Before the fight began, the <span class="blank">___</span> sized each other up.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Angela is such an <span class="blank">___</span> person; she's so easy to talk to!</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Reports are coming in of a <span class="blank">___</span> along the border.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Olivia defeated her old <span class="blank">___</span>, Viola, in the semi-finals.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+    </ol>
+
+    <div class="btns">
+      <button id="check">Check answers</button>
+      <button id="reset" type="button">Reset</button>
+    </div>
+
+    <footer>Made for practice — answers are checked instantly on your device.</footer>
+  </div>
+
+<script>
+  const WORDS = [
+    "accomplices","affable","amicably","befriended","camaraderie","cordial",
+    "crony","genial","inseparable","jovial","adversary","combatants",
+    "dogfight","foray","fray","melee","nemesis","saboteurs","skirmish","tussle"
+  ];
+
+  // Correct answers in order of questions 1..20
+  const ANSWERS = [
+    "nemesis",
+    "amicably",
+    "cordial",
+    "camaraderie",
+    "crony",
+    "fray",
+    "genial",
+    "befriended",
+    "tussle",
+    "jovial",
+    "foray",
+    "accomplices",
+    "inseparable",
+    "melee",
+    "dogfight",
+    "saboteurs",
+    "combatants",
+    "affable",
+    "skirmish",
+    "adversary"
+  ];
+
+  // Fill every <select> with the word bank
+  document.querySelectorAll("select").forEach(sel => {
+    WORDS.forEach(w => {
+      const opt = document.createElement('option');
+      opt.value = w;
+      opt.textContent = w;
+      sel.appendChild(opt);
+    });
+  });
+
+  const scoreEl = document.getElementById("score");
+  const checkBtn = document.getElementById("check");
+  const resetBtn = document.getElementById("reset");
+
+  function grade(){
+    let correct = 0;
+    document.querySelectorAll("#quiz li").forEach((li, idx) => {
+      const select = li.querySelector("select");
+      li.classList.remove("correct","incorrect");
+      if(!select.value){ return; }
+      if(select.value === ANSWERS[idx]){
+        li.classList.add("correct");
+        correct++;
+      }else{
+        li.classList.add("incorrect");
+      }
+    });
+    scoreEl.textContent = `Score: ${correct} / ${ANSWERS.length}`;
+  }
+
+  checkBtn.addEventListener("click", grade);
+
+  resetBtn.addEventListener("click", () => {
+    document.querySelectorAll("select").forEach(s => s.value = "");
+    document.querySelectorAll("#quiz li").forEach(li => li.classList.remove("correct","incorrect"));
+    scoreEl.textContent = "Score: —";
+  });
+</script>
+</body>
+</html>
