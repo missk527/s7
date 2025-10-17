@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vocabulary Cloze Quiz — Reporting Verbs</title>
+<style>
+  :root{
+    --bg:#0f172a;
+    --card:#111827;
+    --ink:#e5e7eb;
+    --muted:#9ca3af;
+    --accent:#22c55e;
+    --wrong:#ef4444;
+    --focus:#38bdf8;
+  }
+  html,body{background:var(--bg);color:var(--ink);font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";margin:0}
+  .wrap{max-width:1100px;margin:28px auto;padding:0 16px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+  h1{font-size:clamp(22px,4vw,32px);margin:0;font-weight:800;letter-spacing:.2px}
+  .bank{background:var(--card);border-radius:16px;padding:14px 16px;margin:14px 0;box-shadow:0 8px 24px rgb(0 0 0 / .25)}
+  .bank strong{display:block;margin-bottom:6px;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.18em}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{padding:6px 10px;border:1px dashed #374151;border-radius:10px;background:#0b1220}
+  ol{counter-reset:q;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+  li{background:var(--card);padding:16px;border-radius:16px;box-shadow:0 6px 18px rgb(0 0 0 / .20)}
+  li::before{counter-increment:q;content:counter(q) ".";color:var(--muted);font-weight:700;margin-right:10px}
+  .q{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  select{appearance:none;background:#0b1220;border:1px solid #374151;border-radius:12px;color:var(--ink);padding:10px 12px;font-size:15px;outline:none}
+  select:focus{box-shadow:0 0 0 3px var(--focus)}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  button{border:0;border-radius:14px;padding:12px 16px;font-weight:700;cursor:pointer}
+  #check{background:#2563eb;color:white}
+  #reset{background:#374151;color:#e5e7eb}
+  .result{margin-left:auto;color:var(--muted);font-weight:700}
+  .correct{outline:3px solid var(--accent)}
+  .incorrect{outline:3px solid var(--wrong)}
+  footer{color:var(--muted);font-size:13px;margin-top:20px}
+  .blank{font-weight:700;letter-spacing:.2px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Vocabulary Cloze Quiz — Reporting Verbs</h1>
+      <div class="result" id="score">Score: —</div>
+    </header>
+
+    <div class="bank">
+      <strong>Word bank</strong>
+      <div class="chips" id="bankChips">
+        <span class="chip">admitted</span>
+        <span class="chip">begged</span>
+        <span class="chip">beseeched</span>
+        <span class="chip">bragged</span>
+        <span class="chip">commanded</span>
+        <span class="chip">confessed</span>
+        <span class="chip">exclaimed</span>
+        <span class="chip">grumbled</span>
+        <span class="chip">instructed</span>
+        <span class="chip">interrogated</span>
+        <span class="chip">interrupted</span>
+        <span class="chip">lectured</span>
+        <span class="chip">moaned</span>
+        <span class="chip">pleaded</span>
+        <span class="chip">preached</span>
+        <span class="chip">reiterated</span>
+        <span class="chip">requested</span>
+        <span class="chip">responded</span>
+        <span class="chip">retorted</span>
+        <span class="chip">warned</span>
+      </div>
+      <p style="margin:8px 0 0;color:var(--muted);font-size:13px">Choose the best word for each blank. Use each word once.</p>
+    </div>
+
+    <ol id="quiz">
+      <li>
+        <div class="q">"I don't actually like scrambled eggs," Melinda <span class="blank">___</span> to me.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"Can we please be allowed to stay up late?" <span class="blank">___</span> Linus and Lionel.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"Please, don't hurt me!" the cowardly lion <span class="blank">___</span> the mouse.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"Move the siege towers into position," <span class="blank">___</span> Atticus, the Roman general.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"I've just bought the latest iPhone," Francis <span class="blank">___</span>.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"Could you bring me some more water?" <span class="blank">___</span> the customer.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"You should never EVER do that again!" <span class="blank">___</span> my mother.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"My head hurts; I've got a headache," <span class="blank">___</span> Billy.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"I'm telling you that I don't know!" Tim <span class="blank">___</span> irritably.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"But what did you see?!" <span class="blank">___</span> Davina.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"I was the one who broke the vase," Nancy finally <span class="blank">___</span>.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"Don't be angry with me," <span class="blank">___</span> Rachel.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"Never go into the woods at night," the old woman <span class="blank">___</span> the young boy.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"I haven't the faintest idea," <span class="blank">___</span> Candy.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"Why do I have to do Jenny's shopping for her?" <span class="blank">___</span> Ruth.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"This project must be completed by the end of the month," <span class="blank">___</span> the boss.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"Where," <span class="blank">___</span> the policeman, "were you last Tuesday night at 10 o'clock?"</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"Honesty," Rose <span class="blank">___</span> primly, "is always the best policy."</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"I don't believe that for a second," <span class="blank">___</span> Geoff.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"What a wonderful surprise!" <span class="blank">___</span> Hilda delightedly.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+    </ol>
+
+    <div class="btns">
+      <button id="check">Check answers</button>
+      <button id="reset" type="button">Reset</button>
+    </div>
+
+    <footer>Made for practice — answers are checked instantly on your device.</footer>
+  </div>
+
+<script>
+  const WORDS = [
+    "admitted","begged","beseeched","bragged","commanded","confessed",
+    "exclaimed","grumbled","instructed","interrogated","interrupted","lectured",
+    "moaned","pleaded","preached","reiterated","requested","responded","retorted","warned"
+  ];
+
+  // Correct answers in order of questions 1..20
+  const ANSWERS = [
+    "admitted",
+    "begged",
+    "beseeched",
+    "commanded",
+    "bragged",
+    "requested",
+    "lectured",
+    "moaned",
+    "retorted",
+    "interrupted",
+    "confessed",
+    "pleaded",
+    "warned",
+    "responded",
+    "grumbled",
+    "instructed",
+    "interrogated",
+    "preached",
+    "reiterated",
+    "exclaimed"
+  ];
+
+  // Fill every <select> with the word bank
+  document.querySelectorAll("select").forEach(sel => {
+    WORDS.forEach(w => {
+      const opt = document.createElement('option');
+      opt.value = w;
+      opt.textContent = w;
+      sel.appendChild(opt);
+    });
+  });
+
+  const scoreEl = document.getElementById("score");
+  const checkBtn = document.getElementById("check");
+  const resetBtn = document.getElementById("reset");
+
+  function grade(){
+    let correct = 0;
+    document.querySelectorAll("#quiz li").forEach((li, idx) => {
+      const select = li.querySelector("select");
+      li.classList.remove("correct","incorrect");
+      if(!select.value){ return; }
+      if(select.value === ANSWERS[idx]){
+        li.classList.add("correct");
+        correct++;
+      }else{
+        li.classList.add("incorrect");
+      }
+    });
+    scoreEl.textContent = `Score: ${correct} / ${ANSWERS.length}`;
+  }
+
+  checkBtn.addEventListener("click", grade);
+
+  resetBtn.addEventListener("click", () => {
+    document.querySelectorAll("select").forEach(s => s.value = "");
+    document.querySelectorAll("#quiz li").forEach(li => li.classList.remove("correct","incorrect"));
+    scoreEl.textContent = "Score: —";
+  });
+</script>
+</body>
+</html>
