@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vocabulary Cloze Quiz — “un-” Words</title>
+<style>
+  :root{
+    --bg:#0f172a;
+    --card:#111827;
+    --ink:#e5e7eb;
+    --muted:#9ca3af;
+    --accent:#22c55e;
+    --wrong:#ef4444;
+    --focus:#38bdf8;
+  }
+  html,body{
+    background:var(--bg);
+    color:var(--ink);
+    font:16px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    margin:0;
+  }
+  .wrap{max-width:1100px;margin:28px auto;padding:0 16px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+  h1{font-size:clamp(22px,4vw,32px);margin:0;font-weight:800;letter-spacing:.2px}
+  .bank{
+    background:var(--card);
+    border-radius:16px;
+    padding:14px 16px;
+    margin:14px 0;
+    box-shadow:0 8px 24px rgb(0 0 0 / .25)
+  }
+  .bank strong{
+    display:block;
+    margin-bottom:6px;
+    font-size:14px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.18em
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    padding:6px 10px;
+    border:1px dashed #374151;
+    border-radius:10px;
+    background:#0b1220;
+    font-size:14px;
+  }
+  ol{
+    counter-reset:q;
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:grid;
+    gap:14px
+  }
+  li{
+    background:var(--card);
+    padding:16px;
+    border-radius:16px;
+    box-shadow:0 6px 18px rgb(0 0 0 / .20)
+  }
+  li::before{
+    counter-increment:q;
+    content:counter(q) ".";
+    color:var(--muted);
+    font-weight:700;
+    margin-right:10px
+  }
+  .q{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  select{
+    appearance:none;
+    background:#0b1220;
+    border:1px solid #374151;
+    border-radius:999px;
+    color:var(--ink);
+    padding:8px 12px;
+    font-size:15px;
+    outline:none;
+    min-width:140px;
+  }
+  select:focus{box-shadow:0 0 0 3px var(--focus)}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  button{
+    border:0;
+    border-radius:14px;
+    padding:12px 16px;
+    font-weight:700;
+    cursor:pointer
+  }
+  #check{background:#2563eb;color:white}
+  #reset{background:#374151;color:#e5e7eb}
+  .result{margin-left:auto;color:var(--muted);font-weight:700}
+  .correct{outline:3px solid var(--accent)}
+  .incorrect{outline:3px solid var(--wrong)}
+  footer{color:var(--muted);font-size:13px;margin-top:20px}
+  .blank{font-weight:700;letter-spacing:.2px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Vocabulary Cloze Quiz — “un-” Words</h1>
+      <div class="result" id="score">Score: —</div>
+    </header>
+
+    <div class="bank">
+      <strong>Word bank</strong>
+      <div class="chips" id="bankChips">
+        <span class="chip">unbiased</span>
+        <span class="chip">unbridled</span>
+        <span class="chip">uncanny</span>
+        <span class="chip">uncharted</span>
+        <span class="chip">unchecked</span>
+        <span class="chip">uncouth</span>
+        <span class="chip">unearth</span>
+        <span class="chip">unerring</span>
+        <span class="chip">unfounded</span>
+        <span class="chip">unfurled</span>
+        <span class="chip">unheeded</span>
+        <span class="chip">unhinged</span>
+        <span class="chip">unnamed</span>
+        <span class="chip">unnerve</span>
+        <span class="chip">unravel</span>
+        <span class="chip">unsavoury</span>
+        <span class="chip">unscathed</span>
+        <span class="chip">unsuited</span>
+        <span class="chip">untapped</span>
+        <span class="chip">unwieldy</span>
+      </div>
+      <p style="margin:8px 0 0;color:var(--muted);font-size:13px">
+        Choose the best word for each blank. Use each word once.
+      </p>
+    </div>
+
+    <ol id="quiz">
+      <li>
+        <div class="q">By the end of the tragedy, Lady Macbeth has become completely <span class="blank">___</span>.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Yolanda's outfit was utterly <span class="blank">___</span> to the occasion.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">My mother has an <span class="blank">___</span> ability to tell when I'm lying.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Thankfully, everyone emerged <span class="blank">___</span> from the accident.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">That man bears an <span class="blank">___</span> resemblance to my great-grandfather.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Our benefactor has asked to remain <span class="blank">___</span>.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"What's in here?" grumbled Pete. "I've never carried such an <span class="blank">___</span> suitcase before!"</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The sorceress's warnings went <span class="blank">___</span> by the stubborn villagers.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The government believes there are <span class="blank">___</span> mineral resources in this remote region.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">A jury is supposed to remain <span class="blank">___</span> while hearing the evidence.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Our attempts to <span class="blank">___</span> the mystery of the missing manuscript have failed so far.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"How <span class="blank">___</span> of him to turn his back on you!" exclaimed Aisha to Eva.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">We watched as the sails were gradually <span class="blank">___</span>.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">An <span class="blank">___</span> character was hanging around the train station.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">As they sailed away, the crew knew they were entering <span class="blank">___</span> waters.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">Ross exploded with <span class="blank">___</span> fury when he heard the news.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"We're hoping to <span class="blank">___</span> valuable artefacts," the archaeologist told the reporter.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">"If the king's greed remains <span class="blank">___</span>, we shall all suffer," cautioned Merlin.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The continued silence began to <span class="blank">___</span> the audience.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+      <li>
+        <div class="q">The rumours of the company's collapse are utterly <span class="blank">___</span>.</div>
+        <select><option value="">— choose —</option></select>
+      </li>
+    </ol>
+
+    <div class="btns">
+      <button id="check">Check answers</button>
+      <button id="reset">Reset</button>
+    </div>
+
+    <footer>
+      Vocabulary practice quiz — generated with ChatGPT.
+    </footer>
+  </div>
+
+<script>
+  const WORDS = [
+    "unbiased","unbridled","uncanny","uncharted","unchecked","uncouth",
+    "unearth","unerring","unfounded","unfurled","unheeded","unhinged",
+    "unnamed","unnerve","unravel","unsavoury","unscathed","unsuited",
+    "untapped","unwieldy"
+  ];
+
+  // Correct answers in order of questions 1..20
+  const ANSWERS = [
+    "unhinged",   // 1
+    "unsuited",   // 2
+    "unerring",   // 3
+    "unscathed",  // 4
+    "uncanny",    // 5
+    "unnamed",    // 6
+    "unwieldy",   // 7
+    "unheeded",   // 8
+    "untapped",   // 9
+    "unbiased",   // 10
+    "unravel",    // 11
+    "uncouth",    // 12
+    "unfurled",   // 13
+    "unsavoury",  // 14
+    "uncharted",  // 15
+    "unbridled",  // 16
+    "unearth",    // 17
+    "unchecked",  // 18
+    "unnerve",    // 19
+    "unfounded"   // 20
+  ];
+
+  // Fill every <select> with the word bank
+  document.querySelectorAll("select").forEach(sel => {
+    WORDS.forEach(w => {
+      const opt = document.createElement("option");
+      opt.value = w;
+      opt.textContent = w;
+      sel.appendChild(opt);
+    });
+  });
+
+  const scoreEl = document.getElementById("score");
+  const checkBtn = document.getElementById("check");
+  const resetBtn = document.getElementById("reset");
+
+  function grade() {
+    let correct = 0;
+    document.querySelectorAll("#quiz li").forEach((li, idx) => {
+      const sel = li.querySelector("select");
+      const val = sel.value;
+      li.classList.remove("correct","incorrect");
+      if (!val) return;
+      if (val === ANSWERS[idx]) {
+        correct++;
+        li.classList.add("correct");
+      } else {
+        li.classList.add("incorrect");
+      }
+    });
+    scoreEl.textContent = `Score: ${correct} / ${ANSWERS.length}`;
+  }
+
+  checkBtn.addEventListener("click", grade);
+
+  resetBtn.addEventListener("click", () => {
+    document.querySelectorAll("select").forEach(s => s.value = "");
+    document.querySelectorAll("#quiz li").forEach(li => li.classList.remove("correct","incorrect"));
+    scoreEl.textContent = "Score: —";
+  });
+</script>
+</body>
+</html>
